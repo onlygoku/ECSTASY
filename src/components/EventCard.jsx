@@ -6,30 +6,26 @@ export const EventCard = ({ event, onClick }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.2 }}
       onClick={onClick}
-      className="group relative aspect-[3/4] rounded-lg overflow-hidden cursor-pointer border-2 border-upside-red/20 hover:border-upside-crimson transition-all duration-300"
+      className="group relative rounded-lg overflow-hidden cursor-pointer border-2 border-upside-red/20 hover:border-upside-crimson transition-colors duration-300"
     >
       {/* Poster Image */}
-      <div className="absolute inset-0">
-        {imageUrl ? (
-          <img
-            src={imageUrl}
-            alt={event.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-upside-darkRed to-upside-black flex items-center justify-center">
-            <span className="text-4xl font-display font-bold text-upside-crimson opacity-30">
-              {event.title.charAt(0)}
-            </span>
-          </div>
-        )}
-      </div>
+      {imageUrl ? (
+        <img
+          src={imageUrl}
+          alt={event.title}
+          className="w-full h-auto block transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+        />
+      ) : (
+        <div className="w-full aspect-square bg-gradient-to-br from-upside-darkRed to-upside-black flex items-center justify-center">
+          <span className="text-4xl font-display font-bold text-upside-crimson opacity-30">
+            {event.title.charAt(0)}
+          </span>
+        </div>
+      )}
 
       {/* Overlay on Hover */}
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/80 transition-all duration-300 flex flex-col justify-end p-6">
@@ -46,11 +42,6 @@ export const EventCard = ({ event, onClick }) => {
             View Details
           </div>
         </div>
-      </div>
-
-      {/* Subtle glow effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute inset-0 border-glow rounded-lg"></div>
       </div>
     </motion.div>
   );

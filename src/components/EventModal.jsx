@@ -10,7 +10,6 @@ export const EventModal = ({ event, onClose }) => {
   useEffect(() => {
     if (event) {
       setIsModalOpen(true);
-      // Prevent body scroll when modal is open
       document.body.style.overflow = 'hidden';
     } else {
       setIsModalOpen(false);
@@ -23,14 +22,10 @@ export const EventModal = ({ event, onClose }) => {
     };
   }, [event, setIsModalOpen]);
 
-  // Close on ESC key
   useEffect(() => {
     const handleEsc = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     };
-
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, [onClose]);
@@ -57,7 +52,7 @@ export const EventModal = ({ event, onClose }) => {
           exit={{ scale: 0.9, opacity: 0, y: 50 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto glass border-2 border-upside-red rounded-lg film-grain"
+          className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-hide glass border-2 border-upside-red rounded-lg film-grain"
         >
           {/* Close Button */}
           <button
@@ -101,12 +96,10 @@ export const EventModal = ({ event, onClose }) => {
             {/* Right: Details */}
             <div className="p-8 md:p-10 flex flex-col justify-between">
               <div>
-                {/* Title */}
                 <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4 red-glow leading-tight">
                   {event.title}
                 </h2>
 
-                {/* Date & Category */}
                 <div className="flex flex-wrap gap-3 mb-6">
                   {event.date && (
                     <span className="px-3 py-1 bg-upside-crimson/20 border border-upside-crimson rounded text-sm font-mono text-upside-crimson">
@@ -120,13 +113,11 @@ export const EventModal = ({ event, onClose }) => {
                   )}
                 </div>
 
-                {/* Description */}
                 <p className="text-gray-300 leading-relaxed mb-6 text-lg">
                   {event.description}
                 </p>
               </div>
 
-              {/* Register Button */}
               {event.registrationLink && (
                 <motion.a
                   href={event.registrationLink}

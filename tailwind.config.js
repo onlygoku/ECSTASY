@@ -8,7 +8,6 @@ export default {
     extend: {
       colors: {
         upside: {
-          
           red: '#8b0000',
           bloodRed: '#dc143c',
           crimson: '#ff1744',
@@ -40,17 +39,29 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         vineGrow: {
-          '0%, 100%': { 
+          '0%, 100%': {
             strokeDashoffset: '0',
-            opacity: '0.3' 
+            opacity: '0.3'
           },
-          '50%': { 
+          '50%': {
             strokeDashoffset: '100',
-            opacity: '0.6' 
+            opacity: '0.6'
           },
         }
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-hide': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      });
+    },
+  ],
 }

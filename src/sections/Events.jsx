@@ -60,7 +60,7 @@ export const Events = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
           <h2 className="text-5xl md:text-7xl font-display font-bold text-upside-crimson red-glow mb-4">
@@ -76,7 +76,7 @@ export const Events = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
           className="mb-12"
         >
           <FilterBar
@@ -105,20 +105,16 @@ export const Events = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             >
-              {filteredEvents.map((event, index) => (
-                <motion.div
+              {/* Removed per-card motion.div wrapper — cards animate via whileHover only */}
+              {filteredEvents.map((event) => (
+                <EventCard
                   key={event.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                >
-                  <EventCard
-                    event={event}
-                    onClick={() => setSelectedEvent(event)}
-                  />
-                </motion.div>
+                  event={event}
+                  onClick={() => setSelectedEvent(event)}
+                />
               ))}
             </motion.div>
           )}
