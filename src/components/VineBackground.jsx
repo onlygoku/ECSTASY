@@ -6,59 +6,143 @@ export const VineBackground = () => {
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
         viewBox="0 0 1920 1080"
-        style={{ opacity: 0.35 }}
+        style={{ opacity: 0.4 }}
       >
-        {/* NO feGaussianBlur filter — removed, it was the biggest perf killer */}
-
-        {/* Only 4 paths instead of 8, using CSS animation instead of framer-motion */}
-
-        {/* Top left */}
+        {/* Top left — slithers right then resets */}
         <path
-          d="M 0 100 Q 150 50, 300 100 T 600 100 T 900 100"
+          d="M -200 100 Q 150 40, 350 110 T 700 90 T 1050 105 T 1350 85"
           stroke="#dc143c"
           strokeWidth="3"
           fill="none"
           strokeLinecap="round"
-          style={{ animation: 'vineFade 5s ease-in-out infinite alternate' }}
-        />
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            dur="8s"
+            repeatCount="indefinite"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            keyTimes="0;0.85;1"
+            values="0,0; 280,0; 0,0"
+          />
+          <animate
+            attributeName="opacity"
+            dur="8s"
+            repeatCount="indefinite"
+            keyTimes="0;0.7;0.85;1"
+            values="0.3;0.7;0;0.3"
+          />
+        </path>
 
-        {/* Top right */}
+        {/* Top right — slithers left */}
         <path
-          d="M 1920 150 Q 1700 100, 1500 150 T 1200 150 T 900 150"
+          d="M 2100 160 Q 1720 90, 1510 160 T 1180 145 T 860 160 T 560 140"
           stroke="#ff1744"
           strokeWidth="2.5"
           fill="none"
           strokeLinecap="round"
-          style={{ animation: 'vineFade 6s ease-in-out infinite alternate-reverse' }}
-        />
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            dur="10s"
+            repeatCount="indefinite"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            keyTimes="0;0.85;1"
+            values="0,0; -300,0; 0,0"
+          />
+          <animate
+            attributeName="opacity"
+            dur="10s"
+            repeatCount="indefinite"
+            keyTimes="0;0.7;0.85;1"
+            values="0.7;0.3;0;0.7"
+          />
+        </path>
 
-        {/* Bottom left */}
+        {/* Bottom left — slithers right with slight vertical wobble */}
         <path
-          d="M 0 900 Q 250 850, 500 900 T 1000 900 T 1500 900"
+          d="M -300 920 Q 250 860, 520 915 T 1020 905 T 1520 920 T 1900 900"
           stroke="#ff1744"
           strokeWidth="3"
           fill="none"
           strokeLinecap="round"
-          style={{ animation: 'vineFade 5.5s ease-in-out infinite alternate' }}
-        />
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            dur="9s"
+            repeatCount="indefinite"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            keyTimes="0;0.85;1"
+            values="0,0; 320,15; 0,0"
+          />
+          <animate
+            attributeName="opacity"
+            dur="9s"
+            repeatCount="indefinite"
+            keyTimes="0;0.7;0.85;1"
+            values="0.3;0.6;0;0.3"
+          />
+        </path>
 
-        {/* Bottom right */}
+        {/* Bottom right — slithers left */}
         <path
-          d="M 1920 980 Q 1650 930, 1400 980 T 1000 980 T 600 980"
+          d="M 2200 990 Q 1660 940, 1410 985 T 1010 975 T 620 990 T 200 970"
           stroke="#dc143c"
           strokeWidth="2.5"
           fill="none"
           strokeLinecap="round"
-          style={{ animation: 'vineFade 7s ease-in-out infinite alternate-reverse' }}
-        />
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            dur="11s"
+            repeatCount="indefinite"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            keyTimes="0;0.85;1"
+            values="0,0; -350,-10; 0,0"
+          />
+          <animate
+            attributeName="opacity"
+            dur="11s"
+            repeatCount="indefinite"
+            keyTimes="0;0.7;0.85;1"
+            values="0.6;0.3;0;0.6"
+          />
+        </path>
+
+        {/* Extra mid-left diagonal slitherer for depth */}
+        <path
+          d="M -100 500 Q 200 450, 450 510 T 850 490 T 1150 505"
+          stroke="#8b0000"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="translate"
+            dur="13s"
+            repeatCount="indefinite"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            keyTimes="0;0.85;1"
+            values="0,0; 400,20; 0,0"
+          />
+          <animate
+            attributeName="opacity"
+            dur="13s"
+            repeatCount="indefinite"
+            keyTimes="0;0.6;0.85;1"
+            values="0.2;0.5;0;0.2"
+          />
+        </path>
       </svg>
-
-      <style>{`
-        @keyframes vineFade {
-          0%   { opacity: 0.2; }
-          100% { opacity: 0.7; }
-        }
-      `}</style>
     </div>
   );
 };
