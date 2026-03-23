@@ -62,15 +62,16 @@ export const Landing = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center w-full px-4 sm:px-6">
-        {/* Main Title with Glitch Effect */}
+        {/* Main Title */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
           className="mb-10 sm:mb-16"
         >
+          {/* text-[4rem] = 64px on mobile, well above the 5xl (48px) countdown numbers */}
           <h1
-            className="glitch-text text-5xl xs:text-6xl sm:text-7xl md:text-9xl lg:text-[12rem] font-display font-black text-upside red-glow tracking-wider leading-none break-words"
+            className="glitch-text text-[4rem] sm:text-7xl md:text-9xl lg:text-[12rem] font-display font-black text-upside red-glow tracking-wider leading-none break-words"
             data-text={SITE_CONFIG.eventName}
           >
             {SITE_CONFIG.eventName}
@@ -79,7 +80,7 @@ export const Landing = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mt-4 text-base sm:text-xl md:text-2xl font-mono tracking-[0.2em] sm:tracking-[0.3em] text-gray-400 uppercase"
+            className="mt-4 text-sm sm:text-xl md:text-2xl font-mono tracking-[0.2em] sm:tracking-[0.3em] text-gray-400 uppercase"
           >
             {SITE_CONFIG.eventYear}
           </motion.div>
