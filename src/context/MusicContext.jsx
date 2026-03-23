@@ -30,7 +30,7 @@ export function MusicProvider({ children }) {
 
   return (
     <MusicContext.Provider value={{ musicEnabled, hasChosen, choose, toggle }}>
-      <audio ref={audioRef} src="/src/assets/music/stranger_things.mp3" preload="auto" />
+      <audio ref={audioRef} src="/stranger_things.mp3" preload="auto" />
       {children}
     </MusicContext.Provider>
   );
