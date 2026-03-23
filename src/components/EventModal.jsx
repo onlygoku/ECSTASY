@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getImageUrl } from '../utils/getImageUrl';
 import { formatDate } from '../utils/formatDate';
 import { useModal } from '../context/ModalContext';
 
 export const EventModal = ({ event, onClose }) => {
   const { setIsModalOpen } = useModal();
-  const imageUrl = getImageUrl(event?.poster);
+  const imageUrl = event?.poster;
 
   useEffect(() => {
     if (event) {

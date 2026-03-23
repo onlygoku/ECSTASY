@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import { getImageUrl } from '../utils/getImageUrl';
 import { formatDateShort } from '../utils/formatDate';
 
 export const EventCard = ({ event, onClick }) => {
-  const imageUrl = getImageUrl(event.poster);
+  const imageUrl = event.poster;
 
   return (
     <motion.div

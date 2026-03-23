@@ -233,7 +233,7 @@ export function MusicIntro() {
           fontStyle: 'italic',
           letterSpacing: '0.5px',
         }}>
-          music's fire, try karlo yaar!
+          Music's fire!
         </p>
 
         {/* Bottom decorative line */}
