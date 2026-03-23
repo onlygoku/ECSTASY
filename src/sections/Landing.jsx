@@ -26,7 +26,6 @@ export const Landing = () => {
           </filter>
         </defs>
 
-        {/* Vine paths - subtle organic curves */}
         <motion.path
           d="M 0 50 Q 100 20, 200 50 T 400 50 T 600 50 T 800 50"
           stroke="#8b0000"
@@ -37,7 +36,7 @@ export const Landing = () => {
           animate={{ pathLength: 1, opacity: 0.4 }}
           transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity, repeatType: 'reverse' }}
         />
-        
+
         <motion.path
           d="M 100 100 Q 200 80, 300 120 T 500 120 T 700 120 T 900 120"
           stroke="#8b0000"
@@ -62,16 +61,16 @@ export const Landing = () => {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center w-full px-4 sm:px-6">
         {/* Main Title with Glitch Effect */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
           <h1
-            className="glitch-text text-8xl md:text-9xl lg:text-[12rem] font-display font-black text-upside red-glow tracking-wider"
+            className="glitch-text text-5xl xs:text-6xl sm:text-7xl md:text-9xl lg:text-[12rem] font-display font-black text-upside red-glow tracking-wider leading-none break-words"
             data-text={SITE_CONFIG.eventName}
           >
             {SITE_CONFIG.eventName}
@@ -80,7 +79,7 @@ export const Landing = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="mt-4 text-xl md:text-2xl font-mono tracking-[0.3em] text-gray-400 uppercase"
+            className="mt-4 text-base sm:text-xl md:text-2xl font-mono tracking-[0.2em] sm:tracking-[0.3em] text-gray-400 uppercase"
           >
             {SITE_CONFIG.eventYear}
           </motion.div>
